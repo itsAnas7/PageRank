@@ -24,7 +24,10 @@ $V_n = T.V_{n-1}$
 
 - $V_n$ : The importance vector at the n-th iteration.
 
-By default, $V_0 = \begin{bmatrix} \frac{1}{N} \\ \vdots \\ \frac{1}{N} \end{bmatrix}$
+By default, 
+```math 
+V_0 = \begin{bmatrix} \frac{1}{N} \\ \vdots \\ \frac{1}{N} \end{bmatrix}
+```
 
 - N : The total number of pages.
 
@@ -38,20 +41,23 @@ A solution that was imagined was called *teleportation*. We create another graph
 
 
 In this graph,
-
-$\tilde{A} = \begin{bmatrix}
+```math
+\tilde{A} = \begin{bmatrix}
 1 & 1 & \dots & 1 \\
 1 & 1 & \dots & 1 \\
 \vdots & \vdots & \ddots & \vdots \\
 1 & 1 & \dots & 1 \\
-\end{bmatrix}$
+\end{bmatrix}
+```
 
-$\tilde{T} = \begin{bmatrix}
+```math
+\tilde{T} = \begin{bmatrix}
 \frac{1}{N} & \frac{1}{N} & \dots & \frac{1}{N} \\
 \frac{1}{N} & \frac{1}{N} & \dots & \frac{1}{N} \\
 \vdots & \vdots & \ddots & \vdots \\
 \frac{1}{N} & \frac{1}{N} & \dots & \frac{1}{N} \\
-\end{bmatrix}$
+\end{bmatrix}
+```
 
 The final equation for the importance vector using teleportation is :
 
@@ -59,7 +65,17 @@ $V_n = \beta * T.V_{n-1} + (1 - \beta)*\tilde{T}.V_{n-1}$
 
 - $\beta$ : The weight put on relying on the original graph (i.e network)
 
-It's important to note that since $V_0 = \begin{bmatrix} \frac{1}{N} \\ \vdots \\ \frac{1}{N} \end{bmatrix}$ then $\forall n$ , $\tilde{T}.V_{n} = \begin{bmatrix} \frac{1}{N} \\ \vdots \\ \frac{1}{N} \end{bmatrix} = V_0$
+It's important to note that since 
+```math
+V_0 = \begin{bmatrix} \frac{1}{N} \\ \vdots \\ \frac{1}{N} \end{bmatrix} 
+```
+Then,
+
+```math
+\forall n , \tilde{T}.V_{n} = \begin{bmatrix} \frac{1}{N} \\ \vdots \\ \frac{1}{N} \end{bmatrix} = V_0
+```
+
+
 
 We note $\forall n$ , $\tilde{c} = \tilde{T}.V_n$
 
